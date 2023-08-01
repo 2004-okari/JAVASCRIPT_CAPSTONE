@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+import postLikes from './postLike.js';
 import getLikes from './updateLikes.js';
-import postLikes from './postLike.js'; // Import the postLikes function
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
@@ -22,7 +22,7 @@ const displayMenu = async () => {
         <div class='meal-div-1'>
           <p class='meal-name'>${meal.strMeal}</p>
           <div class='sub-div-1'>
-            <button class="fa-thin fa-heart icon-1">like</button>        
+            <button class="fa-thin fa-heart icon-1">like</button>
             <p class='like-score'>0 likes</p>
           </div>
         </div>
@@ -34,13 +34,17 @@ const displayMenu = async () => {
 
       displayTable.appendChild(mealData);
 
-      // Call the postLikes function with the meal.idMeal as the argument
-      mealData.querySelector('.fa-heart').addEventListener('click', () => {
-        postLikes(meal.idMeal);
-      });
+      const updateLikes = async () => {
+        await postLikes(meal.idMeal);
+        const updatedLikes = await getLikes(meal.idMeal);
+        mealData.querySelector('.like-score').textContent = `${updatedLikes} likes`;
+      };
 
-      getLikes(meal.idMeal).then((likes) => {
-        mealData.querySelector('.like-score').textContent = `${likes} likes`;
+      mealData.querySelector('.fa-heart').addEventListener('click', updateLikes);
+
+      // Fetch and display initial likes count
+      getLikes(meal.idMeal).then((initialLikes) => {
+        mealData.querySelector('.like-score').textContent = `${initialLikes} likes`;
       });
     });
   } catch (error) {
