@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 
+import getLikes from './updateLikes.js';
 import postLikes from './postLike.js'; // Import the postLikes function
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
@@ -36,6 +37,10 @@ const displayMenu = async () => {
       // Call the postLikes function with the meal.idMeal as the argument
       mealData.querySelector('.fa-heart').addEventListener('click', () => {
         postLikes(meal.idMeal);
+      });
+
+      getLikes(meal.idMeal).then((likes) => {
+        mealData.querySelector('.like-score').textContent = `${likes} likes`;
       });
     });
   } catch (error) {
