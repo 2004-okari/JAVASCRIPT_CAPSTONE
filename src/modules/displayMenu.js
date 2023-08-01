@@ -22,14 +22,13 @@ const displayMenu = async () => {
         <div class='meal-div-1'>
           <p class='meal-name'>${meal.strMeal}</p>
           <div class='sub-div-1'>
-            <button class="fa-thin fa-heart icon-1">like</button>
+            <button class="fa-thin icon-1"><img src="https://th.bing.com/th/id/OIG.iHT1776WlbOMzMtcD8ck?w=173&h=173&c=6&r=0&o=5&dpr=1.6&pid=ImgGn" alt="img" class='img-2'></button>
             <p class='like-score'>0 likes</p>
           </div>
         </div>
         <div class='buttons'>
           <button class='comment-btn'>Comment</button>
         </div>
-        <p>${meal.idMeal}</p> <!-- Use meal.idMeal here -->
       `;
 
       displayTable.appendChild(mealData);
@@ -40,7 +39,7 @@ const displayMenu = async () => {
         mealData.querySelector('.like-score').textContent = `${updatedLikes} likes`;
       };
 
-      mealData.querySelector('.fa-heart').addEventListener('click', updateLikes);
+      mealData.querySelector('.icon-1').addEventListener('click', updateLikes);
 
       // Fetch and display initial likes count
       getLikes(meal.idMeal).then((initialLikes) => {
