@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import './style.css';
 import displayMenu from './modules/displayMenu.js';
 

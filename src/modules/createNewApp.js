@@ -5,9 +5,9 @@ async function createNewApp() {
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({})
+      body: JSON.stringify({}),
     });
 
     if (response.ok) {
@@ -24,4 +24,4 @@ async function createNewApp() {
 // Call the function to create a new app and get the unique identifier
 createNewApp();
 
-//App Id : NzTNKtuWKP5MVSViCeRE
+// App Id : NzTNKtuWKP5MVSViCeRE
