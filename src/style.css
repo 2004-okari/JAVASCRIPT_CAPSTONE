@@ -36,8 +36,8 @@ body {
       .span-1 {
         display: grid;
         place-items: center;
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
         font-size: 16px;
         background-color: #e96479;
         border-radius: 50%;
@@ -97,11 +97,18 @@ body {
 
             .icon-1 {
               margin-right: 20px;
+              cursor: pointer;
+
+              .img-2 {
+                width: 20px;
+                height: 20px;
+                background-color: #526d82;
+              }
             }
 
             .like-score {
               font-size: 18px;
-              color: #e96479;
+              color: #181d31;
             }
           }
         }
