@@ -106,7 +106,8 @@ const showPopup = async (mealId) => {
     const closeButton = popupContent.querySelector('.closer');
     closeButton.addEventListener('click', () => {
       body.innerHTML = ''; // Remove the popup content from the body
-      document.querySelector('body').style.overflow = 'auto';
+      document.querySelector('.section-1').style.height = 'auto';
+      document.querySelector('.section-1').style.overflow = 'auto';
     });
     } else {
       console.error('No meal found for the given mealId');

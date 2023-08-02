@@ -11,6 +11,8 @@
 
 body {
   min-width: 378px;
+  position: relative;
+
   .header {
     border-bottom: 0.5px solid #080202;
     display: flex;
@@ -144,6 +146,8 @@ body {
       }
     }
     .section-2 {
+      position: absolute;
+      top: 0px;
       height: 100vh;
       grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
       overflow: scroll;
