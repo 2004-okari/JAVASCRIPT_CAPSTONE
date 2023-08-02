@@ -2,6 +2,7 @@
 
 import postLikes from './postLike.js';
 import getLikes from './updateLikes.js';
+import showPopup from './commentPopup.js';
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
@@ -27,7 +28,7 @@ const displayMenu = async () => {
           </div>
         </div>
         <div class='buttons'>
-          <button class='comment-btn'>Comment</button>
+          <button class='comment-btn' data-mealid="${meal.idMeal}">Comment</button>
         </div>
       `;
 
@@ -40,6 +41,12 @@ const displayMenu = async () => {
       };
 
       mealData.querySelector('.icon-1').addEventListener('click', updateLikes);
+
+      mealData.querySelector('.comment-btn').addEventListener('click', () => {
+        document.querySelector('.section-1').style.height = '0px';
+        document.querySelector('.section-1').style.overflow = 'hidden';
+        showPopup(meal.idMeal);
+      });
 
       // Fetch and display initial likes count
       getLikes(meal.idMeal).then((initialLikes) => {
