@@ -144,10 +144,13 @@ body {
       }
     }
     .section-2 {
+      height: 100vh;
       grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
-      padding: 4%;
+      overflow: scroll;
       .comment-sec {
+        padding: 4%;
         width: 100%;
+        background-color: #dde6ed;
         .cover-div {
           grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
           display: grid;
@@ -294,7 +297,9 @@ body {
   body {
     .main {
       .section-2 {
-        padding: 10% 4%;
+        .comment-sec {
+          padding: 10% 4%;
+        }
       }
     }
   }

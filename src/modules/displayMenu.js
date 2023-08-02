@@ -42,7 +42,15 @@ const displayMenu = async () => {
 
       mealData.querySelector('.icon-1').addEventListener('click', updateLikes);
 
-      mealData.querySelector('.comment-btn').addEventListener('click', () => showPopup(meal.idMeal));
+      mealData.querySelector('.comment-btn').addEventListener('click', () => {
+        document.querySelector('.section-2').style.position = 'absolute';
+        document.querySelector('main').style.position = 'relative';
+        document.querySelector('.section-2').style.top = '70px';
+        document.querySelector('body').style.height = '100vh';
+        document.querySelector('body').style.overflow = 'hidden';
+        // document.querySelector('.section-2').style.position = 'absolute';
+        showPopup(meal.idMeal)}
+      );
 
       // Fetch and display initial likes count
       getLikes(meal.idMeal).then((initialLikes) => {
