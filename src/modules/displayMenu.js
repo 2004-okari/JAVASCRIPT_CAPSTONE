@@ -43,10 +43,10 @@ const displayMenu = async () => {
       mealData.querySelector('.icon-1').addEventListener('click', updateLikes);
 
       mealData.querySelector('.comment-btn').addEventListener('click', () => {
-        document.querySelector('.section-1').style.height = '0px'; 
-        document.querySelector('.section-1').style.overflow = 'hidden'; 
-        showPopup(meal.idMeal)}
-      );
+        document.querySelector('.section-1').style.height = '0px';
+        document.querySelector('.section-1').style.overflow = 'hidden';
+        showPopup(meal.idMeal);
+      });
 
       // Fetch and display initial likes count
       getLikes(meal.idMeal).then((initialLikes) => {
