@@ -2,7 +2,8 @@
 
 import './style.css';
 import displayMenu from './modules/displayMenu.js';
-import itemsCounter from './modules/itemsCounter';
+import itemsCounter from './modules/itemsCounter.js';
+import showPopup from './modules/commentPopup.js';
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';

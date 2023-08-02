@@ -10,6 +10,7 @@
 }
 
 body {
+  min-width: 378px;
   .header {
     border-bottom: 0.5px solid #080202;
     display: flex;
@@ -142,6 +143,143 @@ body {
         }
       }
     }
+    .section-2 {
+      grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
+      padding: 4%;
+      .comment-sec {
+        width: 100%;
+        .cover-div {
+          grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
+          display: grid;
+          gap: 10px;
+          .div-001 {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #8CC0DE;
+            .closer {
+              font-size: 36px;
+              font-family: 'Garamond', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              font-weight: 500;
+              text-align: end;
+              padding-right: 10px;
+              margin-bottom: 5px;
+              &:hover {
+                color: #468b97;
+              }
+              &:active {
+                color: #00454a;
+              }
+
+            }
+            .comment-image {
+              width: 100%;
+              border-radius: 6px;
+              object-fit: cover;
+            }
+            .meal-name {
+              color:#080202;
+              margin-bottom: 10px;
+              font-size: 28px;
+            }
+            .comment-div-1 {
+              .area-1 {
+                display: flex;
+                font-size: 18px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+                .span-text {
+                  overflow-wrap: break-word;
+                  word-wrap: break-word;
+                  hyphens: auto;
+                  color: #526d82;
+                }
+              }
+            }
+          }
+          .div-002 {
+            padding: 10px;
+            width: 100%;
+            background-color: #E3F4F4;
+            border-radius: 5px;
+            overflow: auto;
+            .comment-title {
+              font-size: 24px;
+              display: flex;
+              align-items: center;
+              margin-bottom: 10px;
+              .div-comment {
+                background-color: #e96479;
+                font-size: 14px;
+                display: grid;
+                place-items: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+              }
+            }
+            .comment-add {
+              font-size: 24px;
+              margin-bottom: 10px;
+            }
+            .comment-inputs {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              .input-1 {
+                border-radius: 5px;
+                background-color: #E9F8F9;
+                width: 100%;
+                height: 46px;
+                font-size: 20px;
+                padding: 0 10px;
+                margin-bottom: 8px;
+                border: none;
+                outline: none;
+              }
+              .input-2 {
+                border-radius: 5px;
+                background-color: #E9F8F9;
+                width: 100%;
+                height: 200px;
+                font-size: 20px;
+                margin-bottom: 10px;
+                border: none;
+                outline: none;
+                text-align: start;
+
+              }
+              .btn-primary {
+
+                height: 46px;
+                width: 100%;
+                cursor: pointer;
+                width: 100%;
+                height: 46px;
+                border: none;
+                border-radius: 5px;
+                font-size: 24px;
+                font-weight: 600;
+                letter-spacing: 2px;
+                color: #27374d;
+                background-color: aliceblue;
+
+                &:hover {
+                  background-color: #27374d;
+                  color: #dde6ed;
+                }
+
+                &:active {
+                  background-color: #00454a;
+                  color: #c84b31;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
   }
 
   .footer {
@@ -149,5 +287,15 @@ body {
     font-size: 24px;
     color: #080202;
     padding: 5px 0 10px 0;
+  }
+}
+
+@media (min-width: 801px) {
+  body {
+    .main {
+      .section-2 {
+        padding: 10% 4%;
+      }
+    }
   }
 }
