@@ -13,8 +13,8 @@ const postComments = async (itemId, username, comment) => {
       },
       body: JSON.stringify({
         item_id: itemId,
-        username: username,
-        comment: comment,
+        username,
+        comment,
       }),
     });
   } catch (error) {

@@ -12,9 +12,8 @@ const fetchComments = async (mealId) => {
     // Check if data is an array and contains at least one comment
     if (Array.isArray(data) && data.length > 0) {
       return data;
-    } else {
-      return [];
     }
+    return [];
   } catch (error) {
     console.error('Error fetching comments:', error);
     return [];
