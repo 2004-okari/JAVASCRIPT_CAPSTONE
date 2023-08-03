@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import postComments from "./postComment";
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
@@ -50,6 +51,23 @@ const showPopup = async (mealId) => {
       const body = document.querySelector('.section-2');
       body.innerHTML = '';
       body.appendChild(popupContent);
+
+      // Add event listener to the "Comment" button
+      const commentButton = popupContent.querySelector('.btn-primary');
+      commentButton.addEventListener('click', async () => {
+        const usernameInput = popupContent.querySelector('.input-1');
+        const commentInput = popupContent.querySelector('.input-2');
+        const username = usernameInput.value;
+        const comment = commentInput.value;
+
+        if (username && comment) {
+          await postComments(mealId, username, comment);
+
+          // Clear the input fields after posting the comment
+          usernameInput.value = '';
+          commentInput.value = '';
+        }
+      });
 
       // Add event listener to the close button (x) to remove the popup
       const closeButton = popupContent.querySelector('.closer');
