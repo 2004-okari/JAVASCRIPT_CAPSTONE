@@ -54,11 +54,9 @@ const showPopup = async (mealId) => {
       body.innerHTML = '';
       body.appendChild(popupContent);
 
-      
       const comments = await fetchComments(mealId);
       const commentsDiv = popupContent.querySelector('.comments-div');
 
-      
       if (comments.length > 0) {
         comments.forEach((comment) => {
           const commentItem = document.createElement('div');
@@ -68,7 +66,7 @@ const showPopup = async (mealId) => {
           <p class="comment-text">Insight: ${comment.comment}</p>
           <p class="date">Date: ${comment.creation_date}</p>
           `;
-          
+
           commentsDiv.appendChild(commentItem);
 
           const commentsNo = document.querySelectorAll('.comment-item');
@@ -80,7 +78,6 @@ const showPopup = async (mealId) => {
         noCommentsMessage.textContent = 'No comments yet.';
         commentsDiv.appendChild(noCommentsMessage);
       }
-      
 
       // Add event listener to the "Comment" button
       const commentButton = popupContent.querySelector('.btn-primary');
