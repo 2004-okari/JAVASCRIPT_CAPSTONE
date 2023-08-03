@@ -35,4 +35,37 @@ const createPopupContent = (meal) => {
   return popupContent;
 };
 
+const removePopup = () => {
+  const body = document.querySelector('.section-2');
+  body.innerHTML = ''; // Remove the popup content from the body
+  document.querySelector('.section-1').style.height = 'auto';
+  document.querySelector('.section-1').style.overflow = 'auto';
+};
 
+const showPopup = async (mealId) => {
+  const popupUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+  try {
+    const response = await fetch(popupUrl);
+    const data = await response.json();
+
+    if (data.meals && data.meals.length > 0) {
+      const meal = data.meals[0];
+      const popupContent = createPopupContent(meal);
+
+      // Append the popup content to the body
+      const body = document.querySelector('.section-2');
+      body.innerHTML = '';
+      body.appendChild(popupContent);
+
+      // Add event listener to the close button (x) to remove the popup
+      const closeButton = popupContent.querySelector('.closer');
+      closeButton.addEventListener('click', removePopup);
+    } else {
+      console.error('No meal found for the given mealId');
+    }
+  } catch (error) {
+    console.error('Error fetching meal details for popup', error);
+  }
+};
+
+export default showPopup;
