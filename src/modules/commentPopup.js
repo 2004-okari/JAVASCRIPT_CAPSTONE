@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import postComments from './postComment.js';
 import fetchComments from './getComments.js';
+import commentsCounter from './commentsCounter.js';
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
@@ -53,25 +54,33 @@ const showPopup = async (mealId) => {
       body.innerHTML = '';
       body.appendChild(popupContent);
 
+      
       const comments = await fetchComments(mealId);
-
       const commentsDiv = popupContent.querySelector('.comments-div');
+
+      
       if (comments.length > 0) {
         comments.forEach((comment) => {
           const commentItem = document.createElement('div');
           commentItem.classList.add('comment-item');
           commentItem.innerHTML = `
-            <p class="username">${comment.username}</p>
-            <p class="comment-text">${comment.comment}</p>
-            <p class="date">${comment.creation_date}</p>
+          <p class="username">Username: ${comment.username}</p>
+          <p class="comment-text">Insight: ${comment.comment}</p>
+          <p class="date">Date: ${comment.creation_date}</p>
           `;
+          
           commentsDiv.appendChild(commentItem);
+
+          const commentsNo = document.querySelectorAll('.comment-item');
+          const count1 = document.querySelector('.div-comment');
+          count1.innerHTML = `${commentsCounter(commentsNo)}`;
         });
       } else {
         const noCommentsMessage = document.createElement('p');
         noCommentsMessage.textContent = 'No comments yet.';
         commentsDiv.appendChild(noCommentsMessage);
       }
+      
 
       // Add event listener to the "Comment" button
       const commentButton = popupContent.querySelector('.btn-primary');
