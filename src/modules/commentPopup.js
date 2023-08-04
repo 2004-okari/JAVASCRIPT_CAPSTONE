@@ -44,7 +44,6 @@ const showPopup = async (mealId) => {
              <input type="text" placeholder="Your insights" class="input-2">
              <button type="button" class="btn-primary">Comment</button>
            </div>
-           <p>${meal.idMeal}</p>
        </div>
        </div>
       `;
@@ -102,6 +101,7 @@ const showPopup = async (mealId) => {
         body.innerHTML = ''; // Remove the popup content from the body
         document.querySelector('.section-1').style.height = 'auto';
         document.querySelector('.section-1').style.overflow = 'auto';
+        document.querySelector('.section-2').style.display = 'none';
       });
     } else {
       console.error('No meal found for the given mealId');

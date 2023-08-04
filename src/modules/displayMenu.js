@@ -23,7 +23,7 @@ const displayMenu = async () => {
         <div class='meal-div-1'>
           <p class='meal-name'>${meal.strMeal}</p>
           <div class='sub-div-1'>
-            <button class="fa-thin icon-1"><img src="https://th.bing.com/th/id/OIG.iHT1776WlbOMzMtcD8ck?w=173&h=173&c=6&r=0&o=5&dpr=1.6&pid=ImgGn" alt="img" class='img-2'></button>
+            <button class="fa-thin icon-1"><i class="fa-solid fa-heart" style="color: #ff2e2e;"></i></button>
             <p class='like-score'>0 likes</p>
           </div>
         </div>
@@ -43,6 +43,7 @@ const displayMenu = async () => {
       mealData.querySelector('.icon-1').addEventListener('click', updateLikes);
 
       mealData.querySelector('.comment-btn').addEventListener('click', () => {
+        document.querySelector('.section-2').style.display = 'block';
         document.querySelector('.section-1').style.height = '0px';
         document.querySelector('.section-1').style.overflow = 'hidden';
         showPopup(meal.idMeal);
