@@ -102,10 +102,8 @@ body {
               margin-right: 20px;
               cursor: pointer;
 
-              .img-2 {
-                width: 20px;
-                height: 20px;
-                background-color: #526d82;
+              .image-like {
+                mix-blend-mode: color-burn;
               }
             }
 
@@ -147,10 +145,10 @@ body {
     }
 
     .section-2 {
+      display: none;
       position: absolute;
       top: 0;
       height: 100vh;
-      grid-template-columns: repeat(auto-fit, minmax(357px, 1fr));
       overflow: scroll;
 
       .comment-sec {
@@ -239,6 +237,16 @@ body {
               }
             }
 
+            .comments-div {
+              margin-bottom: 10px;
+
+              .comment-item {
+                margin-bottom: 10px;
+                background-color: #eaf6f6;
+                padding: 5px;
+              }
+            }
+
             .comment-add {
               font-size: 24px;
               margin-bottom: 10px;
@@ -314,8 +322,15 @@ body {
   body {
     .main {
       .section-2 {
+        width: 100%;
+
         .comment-sec {
-          padding: 10% 4%;
+          padding: 4% 20%;
+
+          .cover-div {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+          }
         }
       }
     }
