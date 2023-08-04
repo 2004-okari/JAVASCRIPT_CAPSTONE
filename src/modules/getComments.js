@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-
-const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 const ID = 'NzTNKtuWKP5MVSViCeRE';
 

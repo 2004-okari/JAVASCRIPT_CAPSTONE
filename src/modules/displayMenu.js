@@ -1,12 +1,8 @@
-/* eslint-disable no-unused-vars */
-
 import postLikes from './postLike.js';
 import getLikes from './updateLikes.js';
 import showPopup from './commentPopup.js';
 
 const apiUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-const url1 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-const ID = 'NzTNKtuWKP5MVSViCeRE';
 
 const displayMenu = async () => {
   const displayTable = document.querySelector('.section-1');
